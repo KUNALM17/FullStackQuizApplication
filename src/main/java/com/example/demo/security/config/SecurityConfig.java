@@ -33,6 +33,8 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**").permitAll() 
+                .requestMatchers("/actuator/**").permitAll() // Allow health checks
+                .requestMatchers("/").permitAll() // Allow root endpoint
                 .requestMatchers("/admin/**").hasRole("ADMIN") 
                 .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN") 
                 .anyRequest().authenticated() 
@@ -49,7 +51,11 @@ public class SecurityConfig {
             @Override
             public void addCorsMappings(@org.springframework.lang.NonNull CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000")
+                        .allowedOrigins(
+                            "http://localhost:3000", 
+                            "http://34.0.14.17",
+                            "http://34.0.14.17:3000"
+                        )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
