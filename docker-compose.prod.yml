@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database Service
+  quiz-database:
+    image: postgres:15-alpine
+    container_name: quiz-database
+    environment:
+      POSTGRES_DB: quizdb
+      POSTGRES_USER: quiz_user
+      POSTGRES_PASSWORD: quiz_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - quiz_db_data:/var/lib/postgresql/data
+    networks:
+      - quiz-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quiz_user -d quizdb"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # Spring Boot Backend Service
+  quiz-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: quiz-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://quiz-database:5432/quizdb
+      SPRING_DATASOURCE_USERNAME: quiz_user
+      SPRING_DATASOURCE_PASSWORD: quiz_password
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: false
+      SERVER_PORT: 8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      quiz-database:
+        condition: service_healthy
+    networks:
+      - quiz-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/questions/allQuestions"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # React Frontend Service
+  quiz-frontend:
+    build:
+      context: ./quiz-frontend
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_BASE_URL=http://34.0.14.17:8080
+    container_name: quiz-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      quiz-backend:
+        condition: service_healthy
+    networks:
+      - quiz-network
+    environment:
+      - NODE_ENV=production
+
+volumes:
+  quiz_db_data:
+    driver: local
+
+networks:
+  quiz-network:
+    driver: bridge
