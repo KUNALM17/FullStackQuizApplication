@@ -2,7 +2,8 @@
 
 # ================================================================
 # Google Cloud VM Deployment Script for FullStackQuizApplication
-# Project: My First Project
+# Project ID: extended-arcana-318009
+# Project Name: My First Project
 # Instance: instance-20250829-101008
 # Location: asia-south2-c
 # User: kunalmani10
@@ -10,7 +11,8 @@
 # ================================================================
 
 echo "🚀 Starting Google Cloud VM Deployment..."
-echo "📋 Project: My First Project"
+echo "📋 Project ID: extended-arcana-318009"
+echo "📋 Project Name: My First Project"
 echo "🖥️  Instance: instance-20250829-101008"
 echo "📍 Location: asia-south2-c"
 echo "👤 User: kunalmani10"

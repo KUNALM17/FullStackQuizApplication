@@ -10,11 +10,12 @@ param(
     [string]$VMUser = "kunalmani10",
     [string]$VMInstance = "instance-20250829-101008",
     [string]$Zone = "asia-south2-c",
-    [string]$Project = "my-first-project"
+    [string]$Project = "extended-arcana-318009"
 )
 
 Write-Host "🚀 Google Cloud VM Deployment Manager" -ForegroundColor Green
-Write-Host "📋 Project: $Project" -ForegroundColor Blue
+Write-Host "📋 Project ID: $Project" -ForegroundColor Blue
+Write-Host "📋 Project Name: My First Project" -ForegroundColor Blue
 Write-Host "🖥️  Instance: $VMInstance" -ForegroundColor Blue
 Write-Host "📍 Zone: $Zone" -ForegroundColor Blue
 Write-Host "👤 User: $VMUser" -ForegroundColor Blue
@@ -46,6 +47,10 @@ try {
     }
     
     Write-Host "✅ Google Cloud SDK found" -ForegroundColor Green
+    
+    # Set the project
+    Write-Host "🔧 Setting Google Cloud project..." -ForegroundColor Blue
+    gcloud config set project $Project
 
     # Get VM external IP
     Write-Host "🔍 Getting VM external IP..." -ForegroundColor Blue

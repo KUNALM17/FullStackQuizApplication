@@ -1,5 +1,6 @@
 # Google Cloud VM Troubleshooting Guide
-# Project: My First Project  
+# Project ID: extended-arcana-318009
+# Project Name: My First Project
 # Instance: instance-20250829-101008
 # Location: asia-south2-c
 
@@ -14,7 +15,7 @@
 ### Option 2: Manual SSH to VM
 ```bash
 # SSH to your VM
-gcloud compute ssh kunalmani10@instance-20250829-101008 --zone=asia-south2-c
+gcloud compute ssh kunalmani10@instance-20250829-101008 --zone=asia-south2-c --project=extended-arcana-318009
 
 # Navigate to project and deploy
 cd FullStackQuizApplication
@@ -24,7 +25,8 @@ chmod +x gcloud-deploy.sh
 ```
 
 ## Your VM Configuration
-- **Project**: My First Project
+- **Project ID**: extended-arcana-318009
+- **Project Name**: My First Project
 - **Instance**: instance-20250829-101008
 - **Zone**: asia-south2-c
 - **User**: kunalmani10
