@@ -58,7 +58,7 @@ public class QuizService {
 			List<Question> questions = repo.findRandomQuestionsByCategory(category, numQ);
 
 			if (questions == null || questions.isEmpty()) {
-				return new ResponseEntity<>("❌ No questions found for category: " + category, HttpStatus.BAD_REQUEST);
+				return new ResponseEntity<>("No questions found for category: " + category, HttpStatus.BAD_REQUEST);
 			}
 
 			// Create and save the new quiz
@@ -68,10 +68,10 @@ public class QuizService {
 
 			quizDao.save(quiz);
 
-			return new ResponseEntity<>("✅ Quiz created successfully", HttpStatus.CREATED);
+			return new ResponseEntity<>("Quiz created successfully", HttpStatus.CREATED);
 		} catch (Exception e) {
 			e.printStackTrace();  // Print actual error details for debugging
-			return new ResponseEntity<>("❌ Server error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>("Server error: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
@@ -135,13 +135,13 @@ public class QuizService {
 			Optional<Quiz> quiz = quizDao.findById(id);
 			if (quiz.isPresent()) {
 				quizDao.deleteById(id);
-				return new ResponseEntity<>("✅ Quiz deleted successfully", HttpStatus.OK);
+				return new ResponseEntity<>("Quiz deleted successfully", HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>("❌ Quiz not found with id: " + id, HttpStatus.NOT_FOUND);
+				return new ResponseEntity<>("Quiz not found with id: " + id, HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ResponseEntity<>("❌ Error deleting quiz: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>(" Error deleting quiz: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
@@ -156,13 +156,13 @@ public class QuizService {
 			long count = quizDao.count();
 			if (count > 0) {
 				quizDao.deleteAll();
-				return new ResponseEntity<>("✅ All " + count + " quizzes deleted successfully", HttpStatus.OK);
+				return new ResponseEntity<>(" All " + count + " quizzes deleted successfully", HttpStatus.OK);
 			} else {
-				return new ResponseEntity<>("ℹ️ No quizzes found to delete", HttpStatus.OK);
+				return new ResponseEntity<>("ℹ No quizzes found to delete", HttpStatus.OK);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return new ResponseEntity<>("❌ Error deleting all quizzes: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<>("Error deleting all quizzes: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
