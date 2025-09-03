@@ -1,3 +1,331 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Professional Dark Theme - QuizMaster Pro */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0f1419;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(120, 119, 198, 0.08) 0%, transparent 50%);
+  min-height: 100vh;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+/* Dark theme adjustments for existing classes */
+.bg-gray-100 {
+  background: #0f1419 !important;
+}
+
+.bg-white {
+  background: rgba(17, 24, 39, 0.95) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(55, 65, 81, 0.3);
+  color: #e2e8f0;
+}
+
+.text-gray-800 {
+  color: #f9fafb !important;
+}
+
+.text-gray-600 {
+  color: #9ca3af !important;
+}
+
+.text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.shadow-md {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Header styling */
+header {
+  background: rgba(17, 24, 39, 0.95) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(55, 65, 81, 0.3);
+}
+
+/* Enhanced button styling */
+.bg-indigo-600 {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-indigo-600:hover {
+  background: linear-gradient(135deg, #5b21b6 0%, #6d28d9 100%) !important;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  transform: translateY(-1px);
+}
+
+.bg-red-500 {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.bg-red-500:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+}
+
+/* Enhanced input styling */
+input, select {
+  background: rgba(31, 41, 55, 0.8) !important;
+  border: 2px solid rgba(55, 65, 81, 0.5) !important;
+  color: #e2e8f0 !important;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+  background: rgba(31, 41, 55, 0.95) !important;
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1) !important;
+  outline: none !important;
+}
+
+input::placeholder {
+  color: #9ca3af !important;
+}
+
+/* Label styling */
+label {
+  color: #d1d5db !important;
+  font-weight: 500;
+}
+
+/* Admin dashboard cards */
+.bg-blue-500 {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.bg-blue-500:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+.bg-green-500 {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.2);
+  transition: all 0.3s ease;
+}
+
+.bg-green-500:hover {
+  background: linear-gradient(135deg, #059669 0%, #065f46 100%) !important;
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+.bg-purple-500 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.bg-purple-500:hover {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Quiz and question cards */
+.bg-gray-50 {
+  background: rgba(31, 41, 55, 0.6) !important;
+  border: 1px solid rgba(55, 65, 81, 0.3) !important;
+  transition: all 0.3s ease;
+  color: #e2e8f0;
+}
+
+.bg-gray-50:hover {
+  background: rgba(31, 41, 55, 0.8) !important;
+  border-color: rgba(99, 102, 241, 0.4) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Success/Error messages */
+.bg-green-100 {
+  background: rgba(16, 185, 129, 0.1) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #6ee7b7 !important;
+}
+
+.text-green-700 {
+  color: #6ee7b7 !important;
+}
+
+.border-green-400 {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.bg-red-100 {
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-color: rgba(239, 68, 68, 0.3) !important;
+  color: #fca5a5 !important;
+}
+
+.text-red-700 {
+  color: #fca5a5 !important;
+}
+
+.border-red-400 {
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Quiz question specific styling */
+.bg-indigo-100 {
+  background: rgba(99, 102, 241, 0.15) !important;
+  color: #e2e8f0 !important;
+}
+
+.border-indigo-500 {
+  border-color: #6366f1 !important;
+}
+
+.hover\:border-indigo-400:hover {
+  border-color: #818cf8 !important;
+}
+
+/* Button variants for different actions */
+.bg-gray-300 {
+  background: rgba(55, 65, 81, 0.8) !important;
+  color: #d1d5db !important;
+  border: 1px solid rgba(75, 85, 99, 0.5);
+}
+
+.bg-gray-300:hover, .hover\:bg-gray-400:hover {
+  background: rgba(75, 85, 99, 0.9) !important;
+  color: #e5e7eb !important;
+}
+
+.bg-yellow-500 {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.bg-yellow-500:hover, .hover\:bg-yellow-600:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+}
+
+.bg-red-500:not(.bg-red-500:hover) {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+}
+
+.hover\:bg-red-600:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+}
+
+/* Spinner styling */
+.border-indigo-500 {
+  border-color: #6366f1 !important;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Text color fixes */
+.text-indigo-600 {
+  background: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* Enhanced scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(31, 41, 55, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.7);
+}
+
+/* Professional transitions */
+button, input, select, .cursor-pointer, div[class*="bg-"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus states for accessibility */
+button:focus, input:focus, select:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* Clean, professional spacing */
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-3 > * + * {
+  margin-top: 0.75rem;
+}
+
+.space-x-4 > * + * {
+  margin-left: 1rem;
+}
+
+.space-x-2 > * + * {
+  margin-left: 0.5rem;
+}
