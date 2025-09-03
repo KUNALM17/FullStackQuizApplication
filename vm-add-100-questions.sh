@@ -5,9 +5,9 @@ echo "==============================="
 
 echo "🔗 Connecting to database and inserting questions..."
 
-docker exec quiz-database psql -U quiz_user -d quiz_db -c "
+docker exec -i fullstackquiz-postgres-1 psql -U postgres -d quizdb -c "
 -- Programming Questions (20 questions)
-INSERT INTO question (question_text, option1, option2, option3, option4, right_answer, difficulty_level, category) VALUES
+INSERT INTO question (question_title, option1, option2, option3, option4, right_answer, difficultylevel, category) VALUES
 ('Which programming language is known for \"Write Once, Run Anywhere\"?', 'Python', 'Java', 'C++', 'JavaScript', 'Java', 'MEDIUM', 'Programming'),
 ('What does HTML stand for?', 'Hypertext Markup Language', 'High Tech Modern Language', 'Home Tool Markup Language', 'Hyperlink Text Markup Language', 'Hypertext Markup Language', 'EASY', 'Programming'),
 ('Which of the following is NOT a programming language?', 'Python', 'Java', 'HTML', 'C++', 'HTML', 'EASY', 'Programming'),
